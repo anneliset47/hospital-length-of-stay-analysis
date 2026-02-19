@@ -1,7 +1,7 @@
 # Hospital Length of Stay: Statistical Modeling Analysis
 
 ## Overview
-This project applies statistical modeling techniques from STAT 5000 to analyze predictors of hospital length of stay.
+This project applies statistical modeling techniques to analyze predictors of hospital length of stay.
 
 Techniques used:
 - Hypothesis Testing
