@@ -1,0 +1,21 @@
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# R / RStudio
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Python virtual envs (if used for notebook tooling)
+.venv/
+venv/
+
+# VS Code
+.vscode/
+
+# Generated figures and reports (keep folder, ignore build outputs)
+figures/*.tmp
+figures/*.log

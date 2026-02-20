@@ -1,206 +1,129 @@
-# Emergency Department Length of Stay: Statistical Modeling Analysis
+# Emergency Department Length of Stay Analysis
 
-## Overview
+Portfolio-ready statistical analysis of emergency department (ED) throughput using inferential statistics and predictive modeling in R.
 
-This project investigates the factors that influence Emergency Department (ED) Length of Stay (LOS) and evaluates predictive modeling approaches to estimate LOS.
+## Project Snapshot
 
-Using the Kaggle “Hospital Length of Stay” dataset (100,000 encounters, 28 variables), this analysis combines classical inference and predictive modeling to determine which demographic, facility, and clinical characteristics drive LOS variation.
+- **Goal:** Identify key drivers of ED length of stay (LOS) and compare model families for accurate LOS prediction.
+- **Data:** 100,000 synthetic encounters, 28 variables (Kaggle “Hospital Length of Stay Dataset - Microsoft”).
+- **Approach:** EDA → inference (t-test, ANOVA) → model comparison (MLR vs Gamma GLM).
+- **Outcome:** Gamma GLM (log link) provides better fit for strictly positive, right-skewed LOS outcomes.
 
-The primary research question:
+## Why This Project Is Relevant
 
-> What factors drive emergency department length of stay, and how well can LOS be predicted?
+ED length of stay is a critical operational metric tied to crowding, patient experience, and care flow efficiency. This project demonstrates an end-to-end analytics workflow suitable for healthcare operations and data science roles:
 
----
+- framing an operational business question,
+- preparing and quality-checking real-world style data,
+- selecting statistically appropriate models,
+- validating and communicating results clearly.
 
-## Dataset
+## Core Skills Demonstrated
 
-Source: Kaggle – Hospital Length of Stay Dataset (Microsoft)
+- Statistical inference (two-sample t-test, one-way ANOVA)
+- Regression modeling (Multiple Linear Regression, Gamma GLM)
+- Model diagnostics and assumptions checking
+- Model selection using AIC, BIC, and out-of-sample MSPE
+- Data cleaning and feature typing in R
+- Reproducible notebook-based analysis workflow
 
-- 100,000 observations
-- 28 variables
-- Includes demographics, comorbidities, lab values, facility ID, and discharge information
-- Outcome variable: `lengthofstay`
+## Methods and Results
 
-Data preprocessing included:
-- Date conversion
-- Factor encoding of categorical variables
-- Removal of physiologically impossible lab values
-- Type correction for modeling compatibility
+### 1) Exploratory Analysis
 
----
+- LOS is strongly right-skewed with a long tail.
+- Most encounters have shorter stays; a smaller subgroup has prolonged stays.
+- Facility-level variation in LOS appears substantial.
 
-## Exploratory Data Analysis
+### 2) Inferential Statistics
 
-Key findings from EDA:
+- **Gender comparison (two-sample t-test):** no practically meaningful mean LOS difference.
+- **Facility comparison (one-way ANOVA):** significant between-facility differences in LOS.
 
-- LOS is strongly right-skewed
-- Most patients have short stays
-- A small subset has prolonged stays
-- LOS varies across facilities
-- Clinical variables show stronger variation than demographic variables
+### 3) Predictive Modeling
 
-Visualizations:
-- Histogram of LOS
-- Facility distribution
-- Gender distribution
-- Numeric variable summaries
+- Built nested multiple linear regression (MLR) models.
+- Compared full, clinically motivated, and minimal specifications using AIC/BIC/MSPE.
+- Diagnosed MLR residual violations (normality/constant variance) consistent with skewed positive outcomes.
 
----
+### 4) Improved Model
 
-## Statistical Inference
+- Fitted **Gamma GLM with log link**, aligned with LOS distribution properties.
+- Evaluated with AIC, BIC, pseudo-$R^2$, and test-set MSPE.
+- Gamma GLM showed stronger predictive stability and better distributional fit than baseline linear models.
 
-### 1. Two-Sample t-Test (Gender)
+## Tech Stack
 
-Hypothesis:
-- H₀: Mean LOS does not differ by gender
-- H₁: Mean LOS differs by gender
+- **Language:** R
+- **Interface:** Jupyter Notebook (`.ipynb`) with R kernel
+- **Analysis:** Base R statistical functions (`lm`, `glm`, `aov`, `t.test`, diagnostics)
 
-Result:
-- No meaningful gender difference in LOS
+## Report
 
----
-
-### 2. One-Way ANOVA (Facility)
-
-Hypothesis:
-- H₀: All facilities have equal mean LOS
-- H₁: At least one facility differs
-
-Result:
-- Facility significantly impacts LOS
-- Suggests operational or workflow differences
-
----
-
-## Regression Modeling
-
-### 1. Multiple Linear Regression (MLR)
-
-Model included:
-- Demographics
-- Facility ID
-- Comorbidities
-- Lab values
-- Vital signs
-- Readmission count
-
-Model evaluation:
-- R²
-- Residual diagnostics
-- AIC and BIC
-- MSPE (train/test split)
-
-Findings:
-- Clinical complexity variables were strong predictors
-- Assumptions of normality and homoscedasticity were violated
-- Residual patterns reflected skewed outcome structure
-
----
-
-## Model Selection
-
-Three nested models were compared:
-
-- Full model
-- Clinically motivated model
-- Minimal predictor model
-
-Criteria:
-- AIC
-- BIC
-- Mean Squared Prediction Error (MSPE)
-
-The clinically motivated model achieved a strong balance between interpretability and predictive performance.
-
----
-
-## Improved Model: Gamma GLM
-
-Because LOS is:
-- Strictly positive
-- Right-skewed
-- Heteroscedastic
-
-A Gamma GLM with log link was fitted.
-
-Evaluation:
-- AIC
-- BIC
-- Pseudo R²
-- MSPE (outperformed MLR)
-- Residual diagnostics
-
-The Gamma GLM demonstrated:
-- Improved predictive stability
-- Better alignment with outcome distribution
-- Lower MSPE compared to linear models
-
----
-
-## Key Conclusions
-
-- Clinical severity and complexity drive LOS more than demographics
-- Facility differences meaningfully impact LOS
-- Standard linear regression is not ideal for skewed, positive outcomes
-- Gamma GLM provides a statistically appropriate and more accurate framework for LOS prediction
-
-This analysis demonstrates how classical inference and generalized modeling approaches can be combined to analyze healthcare operational data effectively.
-
----
+- Full report (Markdown): [report/ed_length_of_stay_report.md](report/ed_length_of_stay_report.md)
+- Full report (PDF): [report/ed_length_of_stay_report.pdf](report/ed_length_of_stay_report.pdf)
 
 ## Repository Structure
 
 ```
-ed-length-of-stay-statistical-modeling/
-│
+hospital-length-of-stay-analysis/
 ├── README.md
 ├── LICENSE
+├── CONTRIBUTING.md
+├── requirements-r.txt
 ├── requirements.txt
-│
+├── .gitignore
 ├── data/
+│   ├── README.md
 │   ├── raw/
-│   │   └── LengthOfStay.csv
+│   │   └── ed_length_of_stay_100k.csv
 │   └── processed/
-│
-├── notebooks/
-│   └── ed_length_of_stay_analysis.ipynb
-│
 ├── figures/
-│
-└── report/
-    └── final_project_report.pdf
+├── notebooks/
+│   ├── README.md
+│   └── ed_length_of_stay_analysis.ipynb
+├── report/
+│   ├── ed_length_of_stay_report.md
+│   └── ed_length_of_stay_report.pdf
+└── PORTFOLIO_SUMMARY.md
 ```
-
----
-
-## Methods Demonstrated
-
-- Hypothesis Testing
-- ANOVA
-- Multiple Linear Regression
-- Model Diagnostics
-- AIC / BIC Model Selection
-- Train/Test Validation
-- Mean Squared Prediction Error
-- Gamma Generalized Linear Model
-- Pseudo R²
-- Residual Analysis
-
----
 
 ## Reproducibility
 
-Install dependencies:
+1. Install R and Jupyter.
+2. Install required R package(s):
 
-```
-pip install -r requirements.txt
-```
+    ```bash
+    Rscript -e "install.packages('IRkernel', repos='https://cloud.r-project.org')"
+    ```
 
-Run the notebook from the `notebooks/` directory.
+3. Register R kernel (if needed):
 
----
+    ```bash
+    Rscript -e "IRkernel::installspec(user = TRUE)"
+    ```
 
-## References
+4. Open and run:
 
-- Kaggle: Hospital Length of Stay Dataset
-- Peer-reviewed literature on ED throughput and LOS modeling
+    - `notebooks/ed_length_of_stay_analysis.ipynb`
+
+Detailed notes are in:
+
+- `notebooks/README.md`
+- `data/README.md`
+
+## Limitations and Next Steps
+
+- Data is synthetic and may not reflect full complexity of production EHR/ED systems.
+- Additional operational predictors (arrival hour, staffing, bed occupancy) could improve performance.
+- Future work could evaluate alternative distributions (e.g., log-normal, Tweedie), interaction effects, and fairness diagnostics.
+
+## Data Source
+
+- Kaggle: *Hospital Length of Stay Dataset – Microsoft*  
+  https://www.kaggle.com/datasets/aayushchou/hospital-length-of-stay-dataset-microsoft?resource=download
+
+## Author
+
+**Annelise Thorn**  
+This repository is maintained as a portfolio project demonstrating applied statistical modeling for healthcare operations.
