@@ -4,7 +4,6 @@ Statistical analysis of emergency department (ED) throughput using inferential s
 
 ![Project Type](https://img.shields.io/badge/Project-Healthcare%20Analytics-blue)
 ![Methods](https://img.shields.io/badge/Methods-EDA%20%7C%20Inference%20%7C%20GLM-success)
-![Status](https://img.shields.io/badge/Status-Portfolio%20Ready-brightgreen)
 
 ## Quick Links
 
