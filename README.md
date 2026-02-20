@@ -2,6 +2,18 @@
 
 Portfolio-ready statistical analysis of emergency department (ED) throughput using inferential statistics and predictive modeling in R.
 
+![Project Type](https://img.shields.io/badge/Project-Healthcare%20Analytics-blue)
+![Methods](https://img.shields.io/badge/Methods-EDA%20%7C%20Inference%20%7C%20GLM-success)
+![Status](https://img.shields.io/badge/Status-Portfolio%20Ready-brightgreen)
+
+## Quick Links
+
+- Notebook (R): [notebooks/ed_length_of_stay_analysis.ipynb](notebooks/ed_length_of_stay_analysis.ipynb)
+- Script (Python): [notebooks/ed_length_of_stay_analysis.py](notebooks/ed_length_of_stay_analysis.py)
+- Report (PDF): [report/ed_length_of_stay_report.pdf](report/ed_length_of_stay_report.pdf)
+- Portfolio Summary: [PORTFOLIO_SUMMARY.md](PORTFOLIO_SUMMARY.md)
+- Resume Bullets: [RESUME_BULLETS.md](RESUME_BULLETS.md)
+
 ## Project Snapshot
 
 - **Goal:** Identify key drivers of ED length of stay (LOS) and compare model families for accurate LOS prediction.
@@ -85,7 +97,12 @@ hospital-length-of-stay-analysis/
 ├── report/
 │   ├── ed_length_of_stay_report.md
 │   └── ed_length_of_stay_report.pdf
-└── PORTFOLIO_SUMMARY.md
+├── PORTFOLIO_SUMMARY.md
+├── RESUME_BULLETS.md
+├── Makefile
+└── .github/
+    └── workflows/
+        └── python-check.yml
 ```
 
 ## Reproducibility
@@ -111,6 +128,13 @@ Detailed notes are in:
 
 - `notebooks/README.md`
 - `data/README.md`
+
+For Python script execution:
+
+```bash
+pip install -r requirements.txt
+python notebooks/ed_length_of_stay_analysis.py
+```
 
 ## Limitations and Next Steps
 
