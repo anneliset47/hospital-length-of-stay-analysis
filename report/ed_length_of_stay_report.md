@@ -113,7 +113,7 @@ The notebook’s conclusion indicates improved fit and predictive stability over
 ## 9. Reproducibility
 
 - Notebook: [../notebooks/ed_length_of_stay_analysis.ipynb](../notebooks/ed_length_of_stay_analysis.ipynb)
-- Python script: [../notebooks/ed_length_of_stay_analysis.py](../notebooks/ed_length_of_stay_analysis.py)
+- R script: [../notebooks/ed_length_of_stay_analysis.R](../notebooks/ed_length_of_stay_analysis.R)
 
 ## 10. References
 

@@ -3,7 +3,6 @@
 ## Notebook
 
 - `ed_length_of_stay_analysis.ipynb`
-- `ed_length_of_stay_analysis.py` (Python script conversion)
 - `ed_length_of_stay_analysis.R` (R script conversion)
 
 ## Requirements
@@ -29,13 +28,12 @@
 3. Open `ed_length_of_stay_analysis.ipynb` and select the **R** kernel.
 4. Run cells top-to-bottom.
 
-## Python Script Alternative
+## R Script Alternative
 
-Run the converted Python analysis script from repo root:
+Run the converted R analysis script from repo root:
 
 ```bash
-pip install -r requirements.txt
-python notebooks/ed_length_of_stay_analysis.py
+Rscript notebooks/ed_length_of_stay_analysis.R
 ```
 
 ## Data Path Assumption

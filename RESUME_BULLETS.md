@@ -5,7 +5,7 @@
 - Built an end-to-end healthcare analytics project on 100,000 ED encounters to identify length-of-stay drivers using EDA, hypothesis testing, and predictive modeling.
 - Designed and compared multiple regression specifications with AIC, BIC, and holdout MSPE to balance interpretability and predictive performance.
 - Improved model fit for right-skewed, positive outcomes by implementing a Gamma GLM with log link and validating performance via diagnostics and out-of-sample error.
-- Produced a recruiter-ready technical report and reproducible analysis assets (notebook, Python script conversion, and documentation) for portfolio presentation.
+- Produced a recruiter-ready technical report and reproducible analysis assets (notebook, R script conversion, and documentation) for portfolio presentation.
 
 ## Data Scientist Focus
 

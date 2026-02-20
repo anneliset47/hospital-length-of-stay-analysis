@@ -1,13 +1,13 @@
-.PHONY: install run report clean
+.PHONY: install-r run-r report clean
 
-install:
-	pip install -r requirements.txt
+install-r:
+	Rscript -e "install.packages('IRkernel', repos='https://cloud.r-project.org')"
 
-run:
-	python notebooks/ed_length_of_stay_analysis.py
+run-r:
+	Rscript notebooks/ed_length_of_stay_analysis.R
 
 report:
 	pandoc report/ed_length_of_stay_report.md -o report/ed_length_of_stay_report.pdf --pdf-engine=xelatex
 
 clean:
-	rm -f figures/*_python.png
+	rm -f figures/*.png

@@ -9,7 +9,7 @@ Portfolio-ready statistical analysis of emergency department (ED) throughput usi
 ## Quick Links
 
 - Notebook (R): [notebooks/ed_length_of_stay_analysis.ipynb](notebooks/ed_length_of_stay_analysis.ipynb)
-- Script (Python): [notebooks/ed_length_of_stay_analysis.py](notebooks/ed_length_of_stay_analysis.py)
+- Script (R): [notebooks/ed_length_of_stay_analysis.R](notebooks/ed_length_of_stay_analysis.R)
 - Report (PDF): [report/ed_length_of_stay_report.pdf](report/ed_length_of_stay_report.pdf)
 - Portfolio Summary: [PORTFOLIO_SUMMARY.md](PORTFOLIO_SUMMARY.md)
 - Resume Bullets: [RESUME_BULLETS.md](RESUME_BULLETS.md)
@@ -69,6 +69,7 @@ ED length of stay is a critical operational metric tied to crowding, patient exp
 - **Language:** R
 - **Interface:** Jupyter Notebook (`.ipynb`) with R kernel
 - **Analysis:** Base R statistical functions (`lm`, `glm`, `aov`, `t.test`, diagnostics)
+- **Automation:** Makefile + GitHub Actions CI
 
 ## Report
 
@@ -82,8 +83,8 @@ hospital-length-of-stay-analysis/
 ├── README.md
 ├── LICENSE
 ├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
 ├── requirements-r.txt
-├── requirements.txt
 ├── .gitignore
 ├── data/
 │   ├── README.md
@@ -93,7 +94,8 @@ hospital-length-of-stay-analysis/
 ├── figures/
 ├── notebooks/
 │   ├── README.md
-│   └── ed_length_of_stay_analysis.ipynb
+│   ├── ed_length_of_stay_analysis.ipynb
+│   └── ed_length_of_stay_analysis.R
 ├── report/
 │   ├── ed_length_of_stay_report.md
 │   └── ed_length_of_stay_report.pdf
@@ -102,7 +104,7 @@ hospital-length-of-stay-analysis/
 ├── Makefile
 └── .github/
     └── workflows/
-        └── python-check.yml
+    └── r-check.yml
 ```
 
 ## Reproducibility
@@ -129,11 +131,10 @@ Detailed notes are in:
 - `notebooks/README.md`
 - `data/README.md`
 
-For Python script execution:
+For R script execution:
 
 ```bash
-pip install -r requirements.txt
-python notebooks/ed_length_of_stay_analysis.py
+Rscript notebooks/ed_length_of_stay_analysis.R
 ```
 
 ## Limitations and Next Steps
