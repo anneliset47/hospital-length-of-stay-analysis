@@ -4,6 +4,7 @@
 
 - `ed_length_of_stay_analysis.ipynb`
 - `ed_length_of_stay_analysis.py` (Python script conversion)
+- `ed_length_of_stay_analysis.R` (R script conversion)
 
 ## Requirements
 
