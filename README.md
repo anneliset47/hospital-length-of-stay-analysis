@@ -1,6 +1,6 @@
 # Emergency Department Length of Stay Analysis
 
-Portfolio-ready statistical analysis of emergency department (ED) throughput using inferential statistics and predictive modeling in R.
+Statistical analysis of emergency department (ED) throughput using inferential statistics and predictive modeling in R.
 
 ![Project Type](https://img.shields.io/badge/Project-Healthcare%20Analytics-blue)
 ![Methods](https://img.shields.io/badge/Methods-EDA%20%7C%20Inference%20%7C%20GLM-success)
