@@ -8,9 +8,10 @@ Portfolio-ready statistical analysis of emergency department (ED) throughput usi
 
 ## Quick Links
 
-- Notebook (R): [notebooks/ed_length_of_stay_analysis.ipynb](notebooks/ed_length_of_stay_analysis.ipynb)
 - Script (R): [notebooks/ed_length_of_stay_analysis.R](notebooks/ed_length_of_stay_analysis.R)
 - Report (PDF): [report/ed_length_of_stay_report.pdf](report/ed_length_of_stay_report.pdf)
+- Report (Markdown): [report/ed_length_of_stay_report.md](report/ed_length_of_stay_report.md)
+- Reproducibility Guide: [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
 - Portfolio Summary: [PORTFOLIO_SUMMARY.md](PORTFOLIO_SUMMARY.md)
 - Resume Bullets: [RESUME_BULLETS.md](RESUME_BULLETS.md)
 
@@ -67,7 +68,7 @@ ED length of stay is a critical operational metric tied to crowding, patient exp
 ## Tech Stack
 
 - **Language:** R
-- **Interface:** Jupyter Notebook (`.ipynb`) with R kernel
+- **Interface:** Script-first R workflow (`Rscript`)
 - **Analysis:** Base R statistical functions (`lm`, `glm`, `aov`, `t.test`, diagnostics)
 - **Automation:** Makefile + GitHub Actions CI
 
@@ -94,7 +95,6 @@ hospital-length-of-stay-analysis/
 ├── figures/
 ├── notebooks/
 │   ├── README.md
-│   ├── ed_length_of_stay_analysis.ipynb
 │   └── ed_length_of_stay_analysis.R
 ├── report/
 │   ├── ed_length_of_stay_report.md
@@ -102,29 +102,26 @@ hospital-length-of-stay-analysis/
 ├── PORTFOLIO_SUMMARY.md
 ├── RESUME_BULLETS.md
 ├── Makefile
+├── REPRODUCIBILITY.md
 └── .github/
     └── workflows/
-    └── r-check.yml
+        └── r-check.yml
 ```
 
 ## Reproducibility
 
-1. Install R and Jupyter.
-2. Install required R package(s):
+1. Install R.
+2. Run the analysis script:
 
     ```bash
-    Rscript -e "install.packages('IRkernel', repos='https://cloud.r-project.org')"
+    Rscript notebooks/ed_length_of_stay_analysis.R
     ```
 
-3. Register R kernel (if needed):
+3. Build the report PDF:
 
     ```bash
-    Rscript -e "IRkernel::installspec(user = TRUE)"
+    make report
     ```
-
-4. Open and run:
-
-    - `notebooks/ed_length_of_stay_analysis.ipynb`
 
 Detailed notes are in:
 
@@ -136,6 +133,8 @@ For R script execution:
 ```bash
 Rscript notebooks/ed_length_of_stay_analysis.R
 ```
+
+To run the full reproducibility flow and artifact generation, see [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
 
 ## Limitations and Next Steps
 
